@@ -1,0 +1,47 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type User {
+  id: String!
+  username: String!
+  email: String!
+  password: String!
+  phone: String
+  roles: String!
+}
+
+type Query {
+  getProfile: User!
+  users: [User!]!
+  user(id: String!): User!
+  userByEmail(email: String!): User!
+}
+
+type Mutation {
+  signIn(email: String!, password: String!): String!
+  createUser(createUserInput: CreateUserInput!): User!
+  updateUser(updateUserInput: UpdateUserInput!): User!
+  removeUser(id: String!): User!
+}
+
+input CreateUserInput {
+  username: String!
+  email: String!
+  password: String!
+  phone: String!
+  roles: String!
+}
+
+input UpdateUserInput {
+  username: String
+  email: String
+  password: String
+  phone: String
+  roles: String
+  id: String!
+}
+
+type Subscription {
+  userCreated: String!
+}
